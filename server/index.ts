@@ -56,6 +56,8 @@ const appRouter = router({
 
   createUserTodo: publicProcedure.input(todoInput).mutation(async (opts) => {
     const username = opts.ctx.username;
+    console.log(username);
+
     return { username };
   }),
 });
@@ -64,7 +66,6 @@ const server = createHTTPServer({
   router: appRouter,
   createContext(opts) {
     //do all the verify thingys here
-
     return {
       username: "Omi",
     };

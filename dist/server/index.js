@@ -54,8 +54,19 @@ const appRouter = (0, trpc_1.router)({
             token,
         };
     }),
+    createUserTodo: trpc_1.publicProcedure.input(todoInput).mutation((opts) => __awaiter(void 0, void 0, void 0, function* () {
+        const username = opts.ctx.username;
+        console.log(username);
+        return { username };
+    })),
 });
 const server = (0, standalone_1.createHTTPServer)({
     router: appRouter,
+    createContext(opts) {
+        //do all the verify thingys here
+        return {
+            username: "Omi",
+        };
+    },
 });
 server.listen(3000);
