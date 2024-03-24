@@ -56,7 +56,7 @@ const appRouter = router({
 
   createUserTodo: publicProcedure.input(todoInput).mutation(async (opts) => {
     const username = opts.ctx.username;
-    console.log(username);
+    console.log("from mutation ", username);
 
     return { username };
   }),
@@ -65,6 +65,8 @@ const appRouter = router({
 const server = createHTTPServer({
   router: appRouter,
   createContext(opts) {
+    console.log("context called");
+
     //do all the verify thingys here
     return {
       username: "Omi",

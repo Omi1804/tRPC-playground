@@ -56,13 +56,14 @@ const appRouter = (0, trpc_1.router)({
     }),
     createUserTodo: trpc_1.publicProcedure.input(todoInput).mutation((opts) => __awaiter(void 0, void 0, void 0, function* () {
         const username = opts.ctx.username;
-        console.log(username);
+        console.log("from mutation ", username);
         return { username };
     })),
 });
 const server = (0, standalone_1.createHTTPServer)({
     router: appRouter,
     createContext(opts) {
+        console.log("context called");
         //do all the verify thingys here
         return {
             username: "Omi",

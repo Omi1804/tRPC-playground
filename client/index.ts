@@ -44,6 +44,15 @@ const signupUser = async () => {
   console.log(response);
 };
 
-signupUser();
-createdTodo();
-getTodo();
+const createUserTodo = async () => {
+  const response = await trpc.createUserTodo.mutate({
+    title: "user@gmail.com",
+    description: "password",
+  });
+  console.log(response);
+};
+
+// signupUser();
+// createdTodo();
+// getTodo();
+createUserTodo();

@@ -49,6 +49,14 @@ const signupUser = () => __awaiter(void 0, void 0, void 0, function* () {
     });
     console.log(response);
 });
-signupUser();
-createdTodo();
-getTodo();
+const createUserTodo = () => __awaiter(void 0, void 0, void 0, function* () {
+    const response = yield trpc.createUserTodo.mutate({
+        title: "user@gmail.com",
+        description: "password",
+    });
+    console.log(response);
+});
+// signupUser();
+// createdTodo();
+// getTodo();
+createUserTodo();
